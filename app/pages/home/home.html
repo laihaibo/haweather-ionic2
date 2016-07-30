@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <button clear start (click)='refresh()'>
+      <ion-icon name="refresh"></ion-icon>
+    </button>
+
+    <ion-title>HA Weather</ion-title>
+
+    <ion-buttons end>
+      <button (click)="addCity()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="home">
+  <ion-list>
+    <ion-item-sliding *ngFor="let city of citys">
+      <ion-item (click)="cityShow($event,city)">
+        <!--<ion-thumbnail item-left>
+        <img src="../images/{{city.cityId}}.jpg" alt="">
+      </ion-thumbnail>-->
+        <h2>{{city.cityName}}</h2>
+        <div>
+          <p>天气：{{city.cityWeather}}</p>
+          <p>实时温度：{{city.cityTemp}}</p>
+          <p>相对湿度：{{city.cityRH}}%</p>
+        </div>
+      </ion-item>
+      <ion-item-options>
+        <button danger (click)="delete(city)">
+        <ion-icon name="trash"></ion-icon>
+        Delete
+      </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

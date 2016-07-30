@@ -1,0 +1,23 @@
+<ion-content>
+    <ion-toolbar primary>
+        <ion-title>
+            添加城市
+        </ion-title>
+        <ion-buttons start>
+            <button (click)='close()'>
+            <span showWhen="ios">返回</span>
+            <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+
+    <ion-list>
+        <ion-item>
+            <ion-label>City</ion-label>
+            <ion-input type="text" [(ngModel)]="city.cityName"></ion-input>
+        </ion-item>
+    </ion-list>
+    <div padding>
+        <button block (click)="search()">Add</button>
+    </div>
+</ion-content>
