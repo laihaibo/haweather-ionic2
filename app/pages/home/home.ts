@@ -32,7 +32,7 @@ export class HomePage {
     this.local.get('citys').then((result) => {
       this.citys = JSON.parse(result);
       // console.log(this.citys);
-      
+
     });
     // this.citys=[
     //   {'cityId':0,'cityName':'Beijing',"cityTemp":'19°','cityRH':'54'},
@@ -43,19 +43,19 @@ export class HomePage {
 
   }
 
-  onPageDidEnter(){
+  onPageDidEnter() {
     // console.log("this.citys.length==0");
-    if (this.citys==null) {
-      console.log("this.citys.length==0");
+    if (this.citys == null) {
+      // console.log("this.citys.length==0");
       let toast = Toast.create({
-          message: '当前没有城市天气信息，点击右上方添加！',
-          duration: 2000,
-          position:'middle',
-          cssClass:'textAlignCenter'
-        });
-        this.navCtrl.present(toast);
-    }else{
-      // console.log('xixi');
+        message: '当前没有城市天气信息，点击右上方添加！',
+        duration: 2000,
+        position: 'middle',
+        cssClass: 'textAlignCenter'
+      });
+      this.navCtrl.present(toast);
+    } else {
+
     }
   }
   cityShow(event, city) {
@@ -68,13 +68,7 @@ export class HomePage {
     });
     this.navCtrl.present(modal);
   }
-  refresh() {
-    let arr = [];
-    // for (var i = 0; i < this.citys.length; i++) {
-    //   // console.log(this.citys[i].cityName);
-    //   arr.push(this.citys[i].cityName);
-    //   // console.log(arr);
-    // }
+  doRefresh(refresher) {
     var url = "http://apis.baidu.com/heweather/weather/free?city=";
     var apikey = '84f6725a95519ce2b95197f7f75a4df2';
     var header = new Headers();
@@ -104,23 +98,24 @@ export class HomePage {
         }
         let toastSuccess = Toast.create({
           message: '更新成功!',
-          duration: 2000,
+          duration: 500,
           position: 'middle'
         });
         this.navCtrl.present(toastSuccess);
       }, error => {
-        console.log('更新失败！');
+        // console.log('更新失败！');
         let toastError = Toast.create({
           message: '更新失败!',
-          duration: 2000,
+          duration: 500,
           position: 'middle'
         });
 
         this.navCtrl.present(toastError);
       });
     }
-    console.log(this.citys);
+    // console.log(this.citys);
     this.local.set('citys', JSON.stringify(this.citys));
+    refresher.complete();
   }
   delete(city) {
     for (var i = 0; i < this.citys.length; i++) {

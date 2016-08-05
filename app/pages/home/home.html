@@ -1,13 +1,13 @@
 <ion-header>
   <ion-navbar>
-    <button clear start (click)='refresh()'>
+    <!--<button clear start (click)='refresh()'>
       <ion-icon name="refresh"></ion-icon>
-    </button>
+    </button>-->
 
-    <ion-title>HA Weather</ion-title>
+    <ion-title class="textAlignCenter">HA Weather</ion-title>
 
     <ion-buttons end>
-      <button (click)="addCity()">
+      <button (click)="addCity()" primary>
         <ion-icon name="add"></ion-icon>
       </button>
     </ion-buttons>
@@ -15,9 +15,12 @@
 </ion-header>
 
 <ion-content padding class="home">
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content refreshingSpinner="circles" refreshingText="正在拼命更新中..."></ion-refresher-content>
+  </ion-refresher>
   <ion-list>
     <ion-item-sliding *ngFor="let city of citys">
-      <ion-item (click)="cityShow($event,city)">
+      <ion-item (click)="cityShow($event,city)" style="height: 100px;border: 1px solid transparent">
         <!--<ion-thumbnail item-left>
         <img src="../images/{{city.cityId}}.jpg" alt="">
       </ion-thumbnail>-->

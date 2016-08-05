@@ -88,7 +88,7 @@ export class Add {
                 });
                 this.navCtrl.present(toastSuccess);
             } else {
-                console.log('error');
+                // console.log('error');
                 let toastFailed = Toast.create({
                     message: '添加失败!',
                     duration: 2000,
@@ -96,8 +96,9 @@ export class Add {
                 });
                 this.navCtrl.present(toastFailed);
             }
+            this.viewCtrl.dismiss(this.citys);
         }, error => {
-            console.log('添加失败！');
+            // console.log('添加失败！');
             let toastError = Toast.create({
                 message: '添加失败!',
                 duration: 2000,
