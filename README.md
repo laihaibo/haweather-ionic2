@@ -1,7 +1,15 @@
 # haweather-ionic2
 A weather project using Ionic2
-
 <<<<<<< HEAD
+
+## How to run
+```
+npm install -g ionic@beta cordova
+cd haweather-ionic2
+npm install
+ionic serve
+```
+
 ## update
 * 下拉刷新
 * 修复第一排削头
@@ -18,27 +26,11 @@ A weather project using Ionic2
 ## to do
 拖拽移动城市位置
 
-## How to run
-```
-npm install -g ionic@beta cordova
-cd haweather-ionic2
-npm install
-ionic serve
-```
+## function
+* 点击左上角刷新天气
+* 滑动删除城市
+* 点击右上角添加城市
+* 点击城市查看详情
 
 ## License
 MIT license.
-=======
-运行：
-- `npm install -g ionic@beta`
-- `git clone https://github.com/laihaibo/HAweather.git`
-- `cd HAweather`
-- `npm install`
-- `ionic serve`
-
-功能：
-1. 点击左上角刷新天气
-2. 滑动删除城市
-3. 点击右上角添加城市
-4. 点击城市查看详情
->>>>>>> origin/master
